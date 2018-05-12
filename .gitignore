@@ -1,0 +1,10 @@
+apt-mgmt-sys-api/.idea
+apt-mgmt-sys-api/.mvn
+apt-mgmt-sys-api/target
+apt-mgmt-sys-api/DS_Store
+apt-mgmt-sys-api/APIServer.iml
+apt-mgmt-sys-api/src/main/resources/temp
+apt-mgmt-sys-api/src/main/resources/uploads
+apt-mgmt-sys-api/src/main/resources/tmp
+apt-mgmt-sys-api/src/main/resources/upload
+apt-mgmt-sys-view/node_modules
