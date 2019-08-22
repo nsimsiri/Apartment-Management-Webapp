@@ -59,10 +59,6 @@ class Sidebar extends Component {
     const navItem = (item, key) => {
       const classes = classNames( item.class );
       const variant = classNames( "nav-link", item.variant ? `nav-link-${item.variant}` : "");
-      const hasPermission = RoleActionService.hasPermission(item.roles, this.props.session.roles);
-      if (!hasPermission){
-          return (<div></div>);
-      }
       return (
         <NavItem key={key} className={classes}>
           { isExternal(item.url) ?
@@ -80,7 +76,6 @@ class Sidebar extends Component {
 
     // nav dropdown
     const navDropdown = (item, key) => {
-        if(!RoleActionService.hasPermission(item.roles, this.props.session.roles)) return (<div></div>);
       return (
         <li key={key} className={activeRoute(item.url, props)}>
           <a className="nav-link nav-dropdown-toggle" href="#" onClick={handleClick.bind(this)}><i className={item.icon}></i>{item.name}</a>

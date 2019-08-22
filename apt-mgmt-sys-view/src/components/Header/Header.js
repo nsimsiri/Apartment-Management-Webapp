@@ -24,9 +24,10 @@ class Header extends Component {
     this.toggle = this.toggle.bind(this);
     this.state = {
       dropdownOpen: false,
-      localSession: this.props.session
+      sessionUser: this.props.sessionUser
     };
     this.logout = this.logout.bind(this);
+    this.renderUsername = this.renderUsername.bind(this);
   }
 
   logout(){
@@ -34,8 +35,7 @@ class Header extends Component {
   }
 
   componentWillReceiveProps(nextProps){
-    //   if (this.isAuthenticated) this.props.history.push("/dashboard")
-    //   this.setState({localSession: nextProps.session ? nextProps.session : this.state.localSession})
+      this.setState({sessionUser: nextProps.sessionUser ? nextProps.sessionUser : this.state.sessionUser})
   }
 
   toggle() {
@@ -75,6 +75,13 @@ class Header extends Component {
   </NavItem>
   */
 
+  renderUsername(){
+      if (this.props.sessionUser && this.props.sessionUser.fitbitId){
+        return this.props.sessionUser.fitbitId
+      }
+      return "No-User"
+  }
+
   render() {
     return (
       <header className="app-header navbar">
@@ -91,18 +98,10 @@ class Header extends Component {
             <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
               <DropdownToggle className="nav-link dropdown-toggle">
                 <img src={'img/avatars/default_avatar.png'} className="img-avatar"/>
-                <span className="d-md-down-none">{this.state.localSession.user.username}</span>
+                <span className="d-md-down-none">{this.renderUsername()}</span>
               </DropdownToggle>
               <DropdownMenu right className={this.state.dropdownOpen ? 'show' : ''}>
                   <DropdownItem header tag="div" className="text-center"><strong>Account</strong></DropdownItem>
-                  <Link to={sformat("/userManagement/users/{0}/view", this.state.localSession.user.id)}>
-                    <DropdownItem>
-                        <i className="fa fa-user"></i>Profile
-                        </DropdownItem>
-                  </Link>
-                  <Link to={sformat("/balances/{0}/view", this.state.localSession.balanceId)}>
-                    <DropdownItem><i className="fa fa-money"></i> Balance</DropdownItem>
-                    </Link>
 
                   <DropdownItem onClick={this.logout}><i className="fa fa-lock"></i> <a>Logout</a></DropdownItem>
               </DropdownMenu>
@@ -116,9 +115,7 @@ class Header extends Component {
 }
 
 const mapStateToProps = (state)=>{
-    return {
-        session: state.session
-    }
+    return {}
 }
 
 // export default Header

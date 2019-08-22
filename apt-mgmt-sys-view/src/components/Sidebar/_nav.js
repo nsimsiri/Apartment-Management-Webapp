@@ -20,48 +20,41 @@ export default {
     //   class: ''             // optional class names space delimited list for title item ex: "text-center"
     // },
     {
-        name: 'Rooms',
-        url: '/rooms',
-        icon: 'circle-o',
-        roles: []
-    },
-    {
-        name: 'Customers',
-        url: '/customerProfileManagement/customerProfiles',
-        icon: 'circle-o',
-        roles: []
-    },
-    {
-        name: 'Contracts',
-        url: '/contracts',
-        icon: 'circle-o',
-        roles: []
-    },
-    {
-        name: 'Finances',
-        url: '/finances',
+        name: 'Activities',
         icon: 'circle-o',
         roles: [],
         children: [
             {
-                name: 'Transactions',
-                url: '/transactions',
+                name: 'Activity Minutes',
+                url: '/activities/',
                 icon: 'circle-o',
                 roles: []
             },
             {
-                name: 'Balance',
-                url: '/balances',
-                icon: 'circle-o',
-                roles: []
-            },
-            {
-                name: 'Transaction Policy',
-                url: '/policies',
+                name: 'Activity Timeseries',
+                url: '/activities/timeserie',
                 icon: 'circle-o',
                 roles: []
             }
         ]
+    },
+    {
+        name: 'Heartrate',
+        url: '/heartrate',
+        icon: 'circle-o',
+        roles: []
+    },
+    {
+        name: 'Sleep',
+        url: '/sleep',
+        icon: 'circle-o',
+        roles: []
+    },
+    {
+        name: 'EMA',
+        url: '/ema',
+        icon: 'circle-o',
+        roles: []
     },
     {
       name: 'User Management',
